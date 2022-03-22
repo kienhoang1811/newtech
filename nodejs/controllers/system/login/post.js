@@ -10,26 +10,26 @@ exports.post = async (req, res) => {
   const { username, password } = req.body;
 
   // check database
-  try {
-    const emailFind = await accountModel.find();
-    console.log("1");
-    console.log(emailFind);
-    if (!emailFind)
-      return res.status(200).json({ error: "TÀI KHOẢN KHÔNG TỒN TẠI" });
-    console.log("     pass exist");
 
-    const accountFind = await accountModel.findOne({
-      username,
-      password,
-    });
-    if (!accountFind)
-      return res.status(200).json({ error: "TÀI KHOẢN KHÔNG TỒN TẠI" });
-    console.log("     pass exist");
-  } catch (error) {}
+  const emailFind = await accountModel.findOne({ username });
+  console.log("1");
+  console.log(emailFind);
+  if (!emailFind)
+    return res.status(200).json({ error: "TÀI KHOẢN KHÔNG TỒN TẠI" });
+  console.log("     pass exist");
+
+  const accountFind = await accountModel.findOne({
+    username,
+    password,
+  });
+  if (!accountFind)
+    return res.status(200).json({ error: "TÀI KHOẢN KHÔNG TỒN TẠI" });
+  console.log("     pass exist");
 
   // main function
   //  res
   res.json({
-    message: "post",
+    message: "login success",
+    account: accountFind,
   });
 };
