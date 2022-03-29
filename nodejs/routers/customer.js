@@ -9,7 +9,7 @@ const route = express.Router();
 
 route.get("/", get);
 
-// route.post("/", post);
+route.post("/", post);
 
 // route.put("/", put);
 
