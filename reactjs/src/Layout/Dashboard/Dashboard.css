@@ -152,3 +152,27 @@
   border: none;
   outline: none;
 }
+
+/* ################################### */
+.frame_func{
+  width: 100%;
+  height: 100%;
+  /* background-color: red; */
+
+  display: flex;
+  justify-content: space-around;
+}
+
+.setting_icon{
+  width: 30px;
+  height: 100%;
+  /* background-color: blue; */
+
+  /* background-image: url("https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Ic_settings_48px.svg/2048px-Ic_settings_48px.svg.png"); */
+}
+
+.delete_icon{
+  width: 30px;
+  height: 100%;
+  /* background-color: blue; */
+}

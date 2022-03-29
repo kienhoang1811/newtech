@@ -3,7 +3,8 @@ const validator = require("validator");
 
 const contact = new mongoose.Schema(
   {
-    customer_id: { type: mongoose.Schema.Types.ObjectId, ref: "customer"},
+    // customer_id: { type: mongoose.Schema.Types.ObjectId, ref: "_customers"},
+    
     phone: { type: String, required: true},
     email: {
       type: String,

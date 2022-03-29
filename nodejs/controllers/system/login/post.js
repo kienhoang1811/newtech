@@ -1,4 +1,4 @@
-const { accountModel } = require('../../../models/accounts')
+const { managerModel } = require('../../../models/managers')
 
 exports.post = async (req, res) => {
   console.log('post.js :')
@@ -10,14 +10,14 @@ exports.post = async (req, res) => {
   const { username, password } = req.body
 
   // check database
-  const emailFind = await accountModel.find({ username })
+  const emailFind = await managerModel.find({ username })
   console.log(`emailFind`, emailFind)
 
-  const emailPwdFind = await accountModel.findOne({ username, password })
+  const emailPwdFind = await managerModel.findOne({ username, password })
   console.log(`email2Find`, emailPwdFind)
 
   // main function
-
+  emailPwdFind['password'] = null
   //  res
   res.json({
     message: 'login success',
