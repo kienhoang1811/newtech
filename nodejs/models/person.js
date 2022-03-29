@@ -10,4 +10,4 @@ const person = new mongoose.Schema(
   { timestamps: true }
 );
 
-exports.personModel = mongoose.model("person", person);
+exports.personModel = mongoose.model("_persons", person);
