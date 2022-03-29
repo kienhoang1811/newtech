@@ -3,11 +3,11 @@ const validator = require("validator");
 
 const account = new mongoose.Schema(
   {
-    person_id: { type: mongoose.Schema.Types.ObjectId, ref: "person" },
-    usename: { type: String, unique: true, required: true, lowercase: true },
+    // person_id: { type: mongoose.Schema.Types.ObjectId, ref: "person" },
+    username: { type: String, unique: true, required: true, lowercase: true },
     password: {type: String, required: true },
   },
   { timestamps: true }
 );
 
-exports.accountModel = mongoose.model("account", account);
+exports.accountModel = mongoose.model("_accounts", account);

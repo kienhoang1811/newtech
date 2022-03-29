@@ -1,11 +1,5 @@
-const mongoose = require("mongoose");
+const mongoose = require('mongoose')
 
-mongoose.connect(
-  "mongodb://localhost:27017/newtech",
-  {
-    useCreateIndex: true,
-    useNewUrlParser: true,
-    useUnifiedTopology: true,
-  },
-  () => console.log("connect.js : pass connect db")
-);
+mongoose.connect('mongodb://127.0.0.1:27017/newtech', () =>
+  console.log('http://localhost:27017/newtech'),
+)
