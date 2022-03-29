@@ -9,7 +9,7 @@ app.use(cors());
 
 app.use("/", require("./routers/index"));
 app.use("/system/login", require("./routers/login"));
-// app.use("/user", require("./routers/user"));
+app.use("/customer", require("./routers/customer"));
 // app.use("/auto", require("./routers/auto"));
 
 module.exports = app;

@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 const validator = require("validator");
 
-const person = new mongoose.Schema(
+const customer = new mongoose.Schema(
   {
     id: {type: Int32Array, required: true},
     name: { type: String, required: true, lowercase: true },
@@ -10,4 +10,4 @@ const person = new mongoose.Schema(
   { timestamps: true }
 );
 
-exports.personModel = mongoose.model("_persons", person);
+exports.customerModel = mongoose.model("_customers", customer);

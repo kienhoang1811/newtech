@@ -1,9 +1,19 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { Link, useHistory } from 'react-router-dom'
+import axios from 'axios'
 import './Dashboard.css'
 
 function Dashboard(props) {
   const history = useHistory()
+
+  useEffect(() => {
+    getCustomer()
+  }, [])
+
+  const getCustomer = async () => {
+    const res = await axios.get('http://localhost:4000/customer')
+    console.log('🚀 ~ file: Dashboard.jsx ~ line 14 ~ getCustomer ~ res', res)
+  }
 
   const logout = () => {
     localStorage.removeItem('account')

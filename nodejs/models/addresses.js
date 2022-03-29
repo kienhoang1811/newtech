@@ -3,7 +3,7 @@ const validator = require('validator')
 
 const address = new mongoose.Schema(
   {
-    person_id: { type: mongoose.Schema.Types.ObjectId, ref: 'person' },
+    customer_id: { type: mongoose.Schema.Types.ObjectId, ref: 'customer' },
     street: { type: String, required: true, lowercase: true },
     ward: { type: String, required: true, lowercase: true },
     district: { type: String, required: true, lowercase: true },

@@ -1,4 +1,4 @@
-const { accountModel } = require('../../../models/account')
+const { accountModel } = require('../../../models/accounts')
 
 exports.post = async (req, res) => {
   console.log('post.js :')
