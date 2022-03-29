@@ -86,24 +86,30 @@ function Dashboard(props) {
                     {item.id}
                   </div>
                   <div className="datalist_inf" id="inf_name">
-                    {item.name}
+                    {item.username}
                   </div>
                   <div className="datalist_inf" id="inf_phone">
-                    0763 656 338
+                    {item.contact_id.phone}
                   </div>
                   <div className="datalist_inf" id="inf_email">
-                    Anhkien1811@gmail.com
+                    {item.contact_id.email}
                   </div>
                   <div className="datalist_inf" id="inf_address">
-                    140/25 Phạm Văn Chiêu, F9, Gò Vấp
+                    {`${item.address_id.street} ${item.address_id.ward} ${item.address_id.district}`}
                   </div>
                   <div className="datalist_inf" id="inf_city">
-                    Hồ Chí Minh
+                    ${item.address_id.city}
                   </div>
                   <div className="datalist_inf" id="inf_function">
                     <div className="frame_func">
-                      <img className='setting_icon' src='https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Ic_settings_48px.svg/2048px-Ic_settings_48px.svg.png'/>
-                      <img className='delete_icon' src='data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEX///8AAADHx8ckJCT4+Pg2NjapqalgYGCampqSkpIoKCh+fn7e3t7q6upVVVW8vLw/Pz+wsLDPz8+enp5sbGzW1tZCQkIfHx+2trZ2dnaEhITw8PDOzs7BwcFRUVFLS0szMzPj4+MXFxdxcXGLi4sPDw9nZ2cZGRkPUvFYAAAECklEQVR4nO2df1uyMBSGQxF/oAYihpJhFvX9v+Fr6eYm8IIydsZ67r+6TiDnDtxgjbOnJwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANiGWwF1XmpYRNnhpYJDsFtR59cW98OpYRRT59iKxUud4ImEOss2HBoIOk6Pr9RJI0FnQ53nw7hNrtEf9tSZPsqqoaCzpc70UaZNDXPqTB/FvzrMvnzf33lnotPPfiAqUmf6KGsmMCxrLd2tRYYVnfqYG/b1/o0Zjit+P7fGcFrx+/TbFkOvaoPAFsOqc9h/Q/Zc8Vm1waYXbWkae5NyIibwFlVsMWOG05K9w3AVpyn52X3lPUJH5Nk0JfRzvzr2O0sO6ASbPf61Z05luK3PTQ1LIsGFLkHHWdAY7vUZhjSGkT7DCY3hznpDoSvc7QfK8XxyQ/54N+uoIXgfEhtm7PjvXR1hRWzIngy+ujtEZobhrrtDjM0wDLo7xMYMw+on3LaEhnwPHWfbTVtzvaUgNzx1GIHAaDlWQHAk7w/fCrcenWH/XVtEYxjrM6T6H6q2y3REJKjvJNIN1Hh6BCvHzDUQaxiLGhFPZIg/+cC1M3ucUSDBP3KdEA3RSLDbY4XtAR8MV/eRbVgrN3SHZhlG1ht6MLwbGOoGhvcDQ93A8H5gqBsY3g8MdfNnDSdBVhjud731tDB1JI3WOznYD8PfSW25/IR+fsHkQ979POFBGvPtheFlokYmbXkZfpRmVqSXvV+FWC8M2eiN+D8bNgEnKNvbF2J9MGRnRpqwxSbgHMW92RiI+OJMHwyfywx5UPx2snGsoRCzy3DZU8PEesMQhhwYmsDfbGlgeAWGJgDDYhCGMNQNDItBGMJQNzAsBmEIQ93AsBiEIQx1A8NiEIYw1A0Mi0EYwlA3MCwGrTVMYMiAoW5gyLHfMIQhA4a6gSHHfsPIJsO99YbzxoasuORBiPXB0P3f91CaI8zqh4jllE0zTEoM+dRfsfgoqzIhFXpk17NYvsQ0w0GZ4es5Jr9xcZneLpf3vrx7LxabNc2QVVWbSdHBT5Y3ZcDS32blppzOPD/Fcsnazc0yjMvTceN9sT7uajIpvDPjhpNELhfMZ/rPbrelYaH8D85b4qx+Wy2wKhbKysjwqjAf9dtqgdUaUrYQBy+XQlQfqgBfqUNRpZXr2iZkJZJv4BltlNQX5+2MMySvV87gKb0pOItC3aIOa07eyXXVo3zassDgXCyhbcpFKtyF/vC93PoPss5y8ZNMWkIocbqA2kqii/Lshi1WtqzP+E6IqpRXo3qZBANXKlNagO/FyFUR5+P6zBvyaUxXf0OspME5tu1Tu2W1D6dtSJ7N6eYBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACvwD+AdPMLe3G4oAAAAASUVORK5CYII='/>
+                      <img
+                        className="setting_icon"
+                        src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Ic_settings_48px.svg/2048px-Ic_settings_48px.svg.png"
+                      />
+                      <img
+                        className="delete_icon"
+                        src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAeFBMVEX///8AAADHx8ckJCT4+Pg2NjapqalgYGCampqSkpIoKCh+fn7e3t7q6upVVVW8vLw/Pz+wsLDPz8+enp5sbGzW1tZCQkIfHx+2trZ2dnaEhITw8PDOzs7BwcFRUVFLS0szMzPj4+MXFxdxcXGLi4sPDw9nZ2cZGRkPUvFYAAAECklEQVR4nO2df1uyMBSGQxF/oAYihpJhFvX9v+Fr6eYm8IIydsZ67r+6TiDnDtxgjbOnJwAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAANiGWwF1XmpYRNnhpYJDsFtR59cW98OpYRRT59iKxUud4ImEOss2HBoIOk6Pr9RJI0FnQ53nw7hNrtEf9tSZPsqqoaCzpc70UaZNDXPqTB/FvzrMvnzf33lnotPPfiAqUmf6KGsmMCxrLd2tRYYVnfqYG/b1/o0Zjit+P7fGcFrx+/TbFkOvaoPAFsOqc9h/Q/Zc8Vm1waYXbWkae5NyIibwFlVsMWOG05K9w3AVpyn52X3lPUJH5Nk0JfRzvzr2O0sO6ASbPf61Z05luK3PTQ1LIsGFLkHHWdAY7vUZhjSGkT7DCY3hznpDoSvc7QfK8XxyQ/54N+uoIXgfEhtm7PjvXR1hRWzIngy+ujtEZobhrrtDjM0wDLo7xMYMw+on3LaEhnwPHWfbTVtzvaUgNzx1GIHAaDlWQHAk7w/fCrcenWH/XVtEYxjrM6T6H6q2y3REJKjvJNIN1Hh6BCvHzDUQaxiLGhFPZIg/+cC1M3ucUSDBP3KdEA3RSLDbY4XtAR8MV/eRbVgrN3SHZhlG1ht6MLwbGOoGhvcDQ93A8H5gqBsY3g8MdfNnDSdBVhjud731tDB1JI3WOznYD8PfSW25/IR+fsHkQ979POFBGvPtheFlokYmbXkZfpRmVqSXvV+FWC8M2eiN+D8bNgEnKNvbF2J9MGRnRpqwxSbgHMW92RiI+OJMHwyfywx5UPx2snGsoRCzy3DZU8PEesMQhhwYmsDfbGlgeAWGJgDDYhCGMNQNDItBGMJQNzAsBmEIQ93AsBiEIQx1A8NiEIYw1A0Mi0EYwlA3MCwGrTVMYMiAoW5gyLHfMIQhA4a6gSHHfsPIJsO99YbzxoasuORBiPXB0P3f91CaI8zqh4jllE0zTEoM+dRfsfgoqzIhFXpk17NYvsQ0w0GZ4es5Jr9xcZneLpf3vrx7LxabNc2QVVWbSdHBT5Y3ZcDS32blppzOPD/Fcsnazc0yjMvTceN9sT7uajIpvDPjhpNELhfMZ/rPbrelYaH8D85b4qx+Wy2wKhbKysjwqjAf9dtqgdUaUrYQBy+XQlQfqgBfqUNRpZXr2iZkJZJv4BltlNQX5+2MMySvV87gKb0pOItC3aIOa07eyXXVo3zassDgXCyhbcpFKtyF/vC93PoPss5y8ZNMWkIocbqA2kqii/Lshi1WtqzP+E6IqpRXo3qZBANXKlNagO/FyFUR5+P6zBvyaUxXf0OspME5tu1Tu2W1D6dtSJ7N6eYBAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAACvwD+AdPMLe3G4oAAAAASUVORK5CYII="
+                      />
                     </div>
                     {/* <div>2</div> */}
                   </div>
