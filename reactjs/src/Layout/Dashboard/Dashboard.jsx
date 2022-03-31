@@ -7,6 +7,7 @@ function Dashboard(props) {
   const history = useHistory();
 
   const [customerList, setCustomerList] = useState([]);
+  const [keyword, setKeyword] = useState(null);
 
   useEffect(() => {
     getCustomer();
@@ -45,7 +46,7 @@ function Dashboard(props) {
   };
 
   const showEdit = (item) => {
-    console.log(item)
+    console.log(item);
     localStorage.setItem("edit", JSON.stringify(item));
 
     window.location.href = "/edit-user";
@@ -70,6 +71,23 @@ function Dashboard(props) {
     // console.log(`del result: `, a);
   };
 
+  const search = async (e) => {
+    e.preventDefault();
+
+    const res = await axios.get(
+      `http://localhost:4000/customer?name=${keyword}`
+    );
+    console.log(
+      "🚀 ~ file: Dashboard.jsx ~ line 14 ~ getCustomer ~ res",
+      res.data
+    );
+
+    if (!res.data || res.data.error) return alert("KO CÓ KET QUA PHU HOP");
+
+    const { customers } = res.data;
+    setCustomerList(customers);
+  };
+
   const logout = () => {
     localStorage.removeItem("account");
 
@@ -79,10 +97,14 @@ function Dashboard(props) {
   return (
     <div>
       <div className="dashboard_header">
-        <div>
-          <input className="dashboard_header_search" type="text" />
+        <form onSubmit={search}>
+          <input
+            className="dashboard_header_search"
+            type="text"
+            onChange={(e) => setKeyword(e.target.value)}
+          />
           <button className="b_search">Tìm Kiếm</button>
-        </div>
+        </form>
         <div className="dashboard_header_group">
           <div>
             <Link to="add-admin">

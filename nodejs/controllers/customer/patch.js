@@ -34,7 +34,7 @@ exports.patch = async (req, res) => {
     { useFindAndModify: false }
   );
 
-  console.log(`customerEdit`, customerEdit);
+//   console.log(`customerEdit`, customerEdit);
 
   const addressEdit = await addressModel.findOneAndUpdate(
     { _id: customerEdit.address_id },
@@ -42,7 +42,7 @@ exports.patch = async (req, res) => {
     { useFindAndModify: false }
   );
 
-  console.log(`addressEdit`, addressEdit);
+//   console.log(`addressEdit`, addressEdit);
 
   const contactEdit = await contactModel.findOneAndUpdate(
     { _id: customerEdit.contact_id },
@@ -50,7 +50,7 @@ exports.patch = async (req, res) => {
     { useFindAndModify: false }
   );
 
-  console.log(`contactEdit`, contactEdit);
+//   console.log(`contactEdit`, contactEdit);
 
   //  res
   res.json({
