@@ -95,7 +95,7 @@ function Edit_user(props) {
             placeholder={`Username: ${password}`}
           />
           <span></span>
-          <label>Password</label>
+          {/* <label>Password</label> */}
         </div>
         <div className="field">
           <input
@@ -103,10 +103,10 @@ function Edit_user(props) {
             name="phone"
             onChange={(e) => setPhone(e.target.value)}
             required
-            placeholder={`Username: ${phone}`}
+            placeholder={`Phone: ${phone}`}
           />
           <span></span>
-          <label>Phone number</label>
+          {/* <label>Phone number</label> */}
         </div>
         <div className="field">
           <input
@@ -114,10 +114,10 @@ function Edit_user(props) {
             name="email"
             onChange={(e) => setEmail(e.target.value)}
             required
-            placeholder={`Username: ${email}`}
+            placeholder={`Email: ${email}`}
           />
           <span></span>
-          <label>Email</label>
+          {/* <label>Email</label> */}
         </div>
         <div className="field">
           <input
@@ -125,10 +125,10 @@ function Edit_user(props) {
             name="Street"
             onChange={(e) => setStreet(e.target.value)}
             required
-            placeholder={`Username: ${street}`}
+            placeholder={`Street: ${street}`}
           />
           <span></span>
-          <label>Street</label>
+          {/* <label>Street</label> */}
         </div>
 
         <div className="field">
@@ -137,10 +137,10 @@ function Edit_user(props) {
             name="Ward"
             onChange={(e) => setWard(e.target.value)}
             required
-            placeholder={`Username: ${ward}`}
+            placeholder={`Ward: ${ward}`}
           />
           <span></span>
-          <label>Ward</label>
+          {/* <label>Ward</label> */}
         </div>
 
         <div className="field">
@@ -149,10 +149,10 @@ function Edit_user(props) {
             name="District"
             onChange={(e) => setDistrict(e.target.value)}
             required
-            placeholder={`Username: ${district}`}
+            placeholder={`District: ${district}`}
           />
           <span></span>
-          <label>District</label>
+          {/* <label>District</label> */}
         </div>
 
         <div className="field">
@@ -161,10 +161,10 @@ function Edit_user(props) {
             name="City"
             onChange={(e) => setCity(e.target.value)}
             required
-            placeholder={`Username: ${city}`}
+            placeholder={`City: ${city}`}
           />
           <span></span>
-          <label>City</label>
+          {/* <label>City</label> */}
         </div>
 
         <div className="field">
@@ -173,10 +173,10 @@ function Edit_user(props) {
             name="country"
             onChange={(e) => setCountry(e.target.value)}
             required
-            placeholder={`Username: ${country}`}
+            placeholder={`Country: ${country}`}
           />
           <span></span>
-          <label>Country</label>
+          {/* <label>Country</label> */}
         </div>
 
         <div>
