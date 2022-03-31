@@ -13,7 +13,7 @@ route.post("/", post);
 
 // route.put("/", put);
 
-// route.patch("/", patch);
+route.patch("/:id", patch);
 
 route.delete("/:id", Delete);
 

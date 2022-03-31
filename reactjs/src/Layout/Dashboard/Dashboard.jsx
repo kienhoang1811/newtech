@@ -25,6 +25,32 @@ function Dashboard(props) {
     setCustomerList(customers);
   };
 
+  const editCustomer = async (item) => {
+    console.log(`item`, item);
+
+    const res = await axios.put(`http://localhost:4000/customer/${item.id}`);
+    if (!res) return alert("NO RESPONSE!");
+    console.log(`res`, res.data);
+
+    // if (res.data.status !== 1) alert("VL");
+    // const index = customerList.findIndex((x) => x.id === item.id);
+    // // const a = customerList.splice(index, 1);
+    // const finalCustomers = customerList.filter((x) => x.id !== item.id);
+
+    // setCustomerList(finalCustomers);
+
+    // console.log(`finalCustomers: `, finalCustomers);
+
+    // console.log(`del result: `, a);
+  };
+
+  const showEdit = (item) => {
+    console.log(item)
+    localStorage.setItem("edit", JSON.stringify(item));
+
+    window.location.href = "/edit-user";
+  };
+
   const deleteCustomer = async (item) => {
     console.log(`item`, item);
 
@@ -122,9 +148,11 @@ function Dashboard(props) {
                   <div className="datalist_inf" id="inf_function">
                     <div className="frame_func">
                       <img
+                        onClick={() => showEdit(item)}
                         className="setting_icon"
                         src="https://upload.wikimedia.org/wikipedia/commons/thumb/5/58/Ic_settings_48px.svg/2048px-Ic_settings_48px.svg.png"
                       />
+
                       <img
                         onClick={() => deleteCustomer(item)}
                         className="delete_icon"

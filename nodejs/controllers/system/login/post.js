@@ -18,6 +18,7 @@ exports.post = async (req, res) => {
 
   // main function
   emailPwdFind["password"] = null;
+  
   //  res
   res.json({
     message: "login success",
