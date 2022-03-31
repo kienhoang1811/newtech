@@ -33,6 +33,7 @@ function Login(props) {
   const loginHandler = async (e) => {
     e.preventDefault()
     // alert(username)
+    alert(123)
     if (!username || username.length < 5) return alert('username khong hop le')
     if (!password || password.length < 5) return alert('password khong hop le')
 

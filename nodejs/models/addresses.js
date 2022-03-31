@@ -9,6 +9,7 @@ const address = new mongoose.Schema(
     ward: { type: String, required: true, lowercase: true },
     district: { type: String, required: true, lowercase: true },
     city: { type: String, required: true, lowercase: true },
+    country: { type: String, required: true, lowercase: true },
 
     contact_id: { type: mongoose.Schema.Types.ObjectId, ref: '_contacts' },
   },

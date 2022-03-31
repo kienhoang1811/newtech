@@ -15,6 +15,6 @@ route.post("/", post);
 
 // route.patch("/", patch);
 
-// route.delete("/", Delete);
+route.delete("/:id", Delete);
 
 module.exports = route;
