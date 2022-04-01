@@ -33,7 +33,7 @@ function Edit_user(props) {
 
     const body = {
       username,
-      password,
+      // password,
       phone,
       email,
       street,
@@ -45,13 +45,14 @@ function Edit_user(props) {
 
     if (
       !username ||
-      !password ||
+      // !password ||
       !phone ||
       !email ||
       !street ||
       !ward ||
       !district ||
-      !city
+      !city ||
+      !country
     )
       return alert("Dữ liệu ko hợp lệ");
 
@@ -63,7 +64,13 @@ function Edit_user(props) {
 
     if (!res.data) return alert("KO CÓ DỮ LIỆU TRẢ VỀ");
 
+    alert("EDIT SUCCESS");
+
     localStorage.removeItem(`edit`);
+    window.location.href = "/dashboard";
+  };
+
+  const backToDashboard = () => {
     window.location.href = "/dashboard";
   };
 
@@ -81,29 +88,28 @@ function Edit_user(props) {
             name="username"
             onChange={(e) => setUsername(e.target.value)}
             required
-            placeholder={`Username: ${username}`}
+            value={username}
           />
           <span></span>
           {/* <label>Username</label> */}
         </div>
-        <div className="field">
+        {/* <div className="field">
           <input
             type="password"
             name="password"
             onChange={(e) => setPassword(e.target.value)}
             required
-            placeholder={`Username: ${password}`}
-          />
+    value={username}
+            />
           <span></span>
-          {/* <label>Password</label> */}
-        </div>
+        </div> */}
         <div className="field">
           <input
             type="text"
             name="phone"
             onChange={(e) => setPhone(e.target.value)}
             required
-            placeholder={`Phone: ${phone}`}
+            value={phone}
           />
           <span></span>
           {/* <label>Phone number</label> */}
@@ -114,7 +120,7 @@ function Edit_user(props) {
             name="email"
             onChange={(e) => setEmail(e.target.value)}
             required
-            placeholder={`Email: ${email}`}
+            value={email}
           />
           <span></span>
           {/* <label>Email</label> */}
@@ -125,7 +131,7 @@ function Edit_user(props) {
             name="Street"
             onChange={(e) => setStreet(e.target.value)}
             required
-            placeholder={`Street: ${street}`}
+            value={street}
           />
           <span></span>
           {/* <label>Street</label> */}
@@ -137,7 +143,7 @@ function Edit_user(props) {
             name="Ward"
             onChange={(e) => setWard(e.target.value)}
             required
-            placeholder={`Ward: ${ward}`}
+            value={ward}
           />
           <span></span>
           {/* <label>Ward</label> */}
@@ -149,7 +155,7 @@ function Edit_user(props) {
             name="District"
             onChange={(e) => setDistrict(e.target.value)}
             required
-            placeholder={`District: ${district}`}
+            value={district}
           />
           <span></span>
           {/* <label>District</label> */}
@@ -161,7 +167,7 @@ function Edit_user(props) {
             name="City"
             onChange={(e) => setCity(e.target.value)}
             required
-            placeholder={`City: ${city}`}
+            value={city}
           />
           <span></span>
           {/* <label>City</label> */}
@@ -173,12 +179,15 @@ function Edit_user(props) {
             name="country"
             onChange={(e) => setCountry(e.target.value)}
             required
-            placeholder={`Country: ${country}`}
+            value={country}
           />
           <span></span>
           {/* <label>Country</label> */}
         </div>
 
+        <div>
+          <input type="button" value="Cancel" onClick={backToDashboard} />
+        </div>
         <div>
           <input type="submit" value="Submit" />
         </div>

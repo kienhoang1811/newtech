@@ -1,4 +1,7 @@
-.forgot{
+.center{
+    height: auto;
+}
+/* .forgot{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -127,4 +130,4 @@ input [type="submit"]:hover{
 .register a{
     color: #F5F5F5;
     text-decoration: none;
-}
+} */

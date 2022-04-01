@@ -8,9 +8,19 @@ function Dashboard(props) {
 
   const [customerList, setCustomerList] = useState([]);
   const [keyword, setKeyword] = useState(null);
+  const [show, setShow] = useState("none");
 
   useEffect(() => {
     getCustomer();
+
+    localStorage.getItem("account");
+    console.log(`123`, show, JSON.parse(localStorage.getItem("account")).role);
+    setShow(
+      localStorage.getItem("account") &&
+        JSON.parse(localStorage.getItem("account")).role === "manager"
+        ? "block"
+        : "none"
+    );
   }, []);
 
   const getCustomer = async () => {
@@ -103,10 +113,10 @@ function Dashboard(props) {
             type="text"
             onChange={(e) => setKeyword(e.target.value)}
           />
-          <button className="b_search">Tìm Kiếm</button>
+          <button className="b_search">Search</button>
         </form>
         <div className="dashboard_header_group">
-          <div>
+          <div style={{ display: show }}>
             <Link to="add-admin">
               <button className="dashboard_add">Add admin</button>
             </Link>
@@ -153,7 +163,7 @@ function Dashboard(props) {
                     {item.id}
                   </div>
                   <div className="datalist_inf" id="inf_name">
-                    {item.username}
+                    {item.username.replace("@gmail.com", "")}
                   </div>
                   <div className="datalist_inf" id="inf_phone">
                     {item.contact_id.phone}
@@ -191,7 +201,7 @@ function Dashboard(props) {
       <div className="dashboard_footer">
         <div className="dashboard_footer_b_adduser">
           <Link to="add-user">
-            <button>Add user</button>
+            <button>Add customer</button>
           </Link>
         </div>
         <div></div>

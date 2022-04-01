@@ -13,7 +13,7 @@ function Add_user(props) {
   const [district, setDistrict] = useState(null)
   const [ward, setWard] = useState(null)
   const [city, setCity] = useState(null)
-
+  const [country, setCountry] = useState(null)
   const addUser = async (e) => {
     e.preventDefault()
 
@@ -26,6 +26,7 @@ function Add_user(props) {
       district,
       ward,
       city,
+      country,
     }
 
     if (
@@ -36,7 +37,8 @@ function Add_user(props) {
       !street ||
       !ward ||
       !district ||
-      !city
+      !city ||
+      !country
     )
       return alert('Dữ liệu ko hợp lệ')
 
@@ -137,8 +139,19 @@ function Add_user(props) {
           <label>City</label>
         </div>
 
+        <div className="field">
+          <input
+            type="text"
+            name="Country"
+            onChange={(e) => setCountry(e.target.value)}
+            required
+          />
+          <span></span>
+          <label>Country</label>
+        </div>
+
         <div>
-          <input type="submit" value="Submit" />
+          <Link to=""><input type="submit" value="Submit" /></Link>
         </div>
       </form>
     </div>

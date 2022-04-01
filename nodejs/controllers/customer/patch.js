@@ -11,7 +11,7 @@ exports.patch = async (req, res) => {
 
   const {
     username,
-    password,
+    // password,
     phone,
     email,
     street,
@@ -23,6 +23,7 @@ exports.patch = async (req, res) => {
 
   const { id } = req.params;
 
+  console.log(`req body 123: `, req.body);
   // check database
   const customerRecord = await customerModel.findOne({ id });
   if (!customerRecord) return res.json({ message: "FAIL 2" });
@@ -30,27 +31,35 @@ exports.patch = async (req, res) => {
   // main function
   const customerEdit = await customerModel.findOneAndUpdate(
     { id },
-    { $set: { username, password } },
+    { $set: { username } },
     { useFindAndModify: false }
   );
 
-//   console.log(`customerEdit`, customerEdit);
+  console.log(`customerEdit`, customerEdit);
+
+  // const testRecord = await addressModel.findOne({
+  //   _id: customerEdit.address_id,
+  // });
+  // if (!testRecord) return res.json({ message: "FAIL test" });
+
+  // console.log(200, testRecord);
 
   const addressEdit = await addressModel.findOneAndUpdate(
     { _id: customerEdit.address_id },
+    { $set: { street, district, ward, city, country } },
+
+    { useFindAndModify: false }
+  );
+
+  console.log(`addressEdit`, addressEdit);
+
+  const contactEdit = await contactModel.findOneAndUpdate(
+    { _id: customerEdit.contact_id },
     { $set: { phone, email } },
     { useFindAndModify: false }
   );
 
-//   console.log(`addressEdit`, addressEdit);
-
-  const contactEdit = await contactModel.findOneAndUpdate(
-    { _id: customerEdit.contact_id },
-    { $set: { street, district, ward, city, country } },
-    { useFindAndModify: false }
-  );
-
-//   console.log(`contactEdit`, contactEdit);
+  console.log(`contactEdit`, contactEdit);
 
   //  res
   res.json({

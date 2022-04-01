@@ -6,7 +6,7 @@ exports.post = async (req, res) => {
   console.log("post.js :");
 
   // check input
-  const { username, password, phone, email, street, ward, district, city } =
+  const { username, password, phone, email, street, ward, district, city, country } =
     req.body;
   console.log(req.body);
 
@@ -29,6 +29,7 @@ exports.post = async (req, res) => {
     ward,
     district,
     city,
+    country,
   });
   await addressSave.save();
 
