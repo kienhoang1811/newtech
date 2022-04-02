@@ -51,9 +51,13 @@ function Add_user(props) {
     if (!res.data) return alert('KO CÓ DỮ LIỆU TRẢ VỀ')
   }
 
+  const backToDashboard = () => {
+    window.location.href = "/dashboard";
+  };
+
   return (
-    <div className="center">
-      <h1>Add User</h1>
+    <div className="center_edit">
+      <h1>Add Customer</h1>
       <form method="post" onSubmit={addUser}>
         <div className="field">
           <input
@@ -150,8 +154,11 @@ function Add_user(props) {
           <label>Country</label>
         </div>
 
-        <div>
-          <Link to=""><input type="submit" value="Submit" /></Link>
+        <div className="buttonEdit">
+          <input  type="button" value="Cancel" onClick={backToDashboard} />
+        </div>
+        <div className="buttonEdit">
+          <input type="submit" value="Submit" />
         </div>
       </form>
     </div>

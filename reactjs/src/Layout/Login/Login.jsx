@@ -66,7 +66,7 @@ function Login(props) {
   }
 
   return (
-    <div className="center">
+    <div className="center_login">
       <h1>Signin</h1>
       <form method="post" onSubmit={loginHandler}>
         <div className="field">

@@ -75,14 +75,14 @@ function Edit_user(props) {
   };
 
   return (
-    <div className="center">
+    <div className="center_edit">
       <h1>Edit User</h1>
       <form method="post" onSubmit={EditUser}>
-        <div className="field">
+        <div className="field_edit">
           <input type="text" name="id" disabled placeholder={`id: ${id}`} />
           <span></span>
         </div>
-        <div className="field">
+        <div className="field_edit">
           <input
             type="text"
             name="username"
@@ -103,7 +103,7 @@ function Edit_user(props) {
             />
           <span></span>
         </div> */}
-        <div className="field">
+        <div className="field_edit">
           <input
             type="text"
             name="phone"
@@ -114,7 +114,7 @@ function Edit_user(props) {
           <span></span>
           {/* <label>Phone number</label> */}
         </div>
-        <div className="field">
+        <div className="field_edit">
           <input
             type="text"
             name="email"
@@ -125,7 +125,7 @@ function Edit_user(props) {
           <span></span>
           {/* <label>Email</label> */}
         </div>
-        <div className="field">
+        <div className="field_edit">
           <input
             type="text"
             name="Street"
@@ -137,7 +137,7 @@ function Edit_user(props) {
           {/* <label>Street</label> */}
         </div>
 
-        <div className="field">
+        <div className="field_edit">
           <input
             type="text"
             name="Ward"
@@ -149,7 +149,7 @@ function Edit_user(props) {
           {/* <label>Ward</label> */}
         </div>
 
-        <div className="field">
+        <div className="field_edit">
           <input
             type="text"
             name="District"
@@ -161,7 +161,7 @@ function Edit_user(props) {
           {/* <label>District</label> */}
         </div>
 
-        <div className="field">
+        <div className="field_edit">
           <input
             type="text"
             name="City"
@@ -173,7 +173,7 @@ function Edit_user(props) {
           {/* <label>City</label> */}
         </div>
 
-        <div className="field">
+        <div className="field_edit">
           <input
             type="text"
             name="country"
@@ -181,14 +181,14 @@ function Edit_user(props) {
             required
             value={country}
           />
-          <span></span>
+          {/* <span></span> */}
           {/* <label>Country</label> */}
         </div>
 
-        <div>
-          <input type="button" value="Cancel" onClick={backToDashboard} />
+        <div className="buttonEdit">
+          <input  type="button" value="Cancel" onClick={backToDashboard} />
         </div>
-        <div>
+        <div className="buttonEdit">
           <input type="submit" value="Submit" />
         </div>
       </form>

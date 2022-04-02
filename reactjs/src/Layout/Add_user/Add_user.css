@@ -13,7 +13,7 @@
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    height: 540px;
+    height: 800px;
     background: #F5F5F5;
     border-radius: 10px;
 }
@@ -25,7 +25,7 @@
 }
 
 .center form{
-    padding: 0 40px;
+    padding: 0 20px;
     box-sizing: border-box;
 }
 

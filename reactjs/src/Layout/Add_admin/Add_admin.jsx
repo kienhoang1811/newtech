@@ -38,7 +38,7 @@ function Add_admin(props) {
   };
 
   return (
-    <div className="center">
+    <div className="center_add_admin">
       <h1>Add admin</h1>
       <form method="post" onSubmit={addAdmin}>
         <div className="field">

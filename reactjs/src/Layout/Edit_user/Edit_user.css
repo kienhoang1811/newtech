@@ -1,7 +1,19 @@
-.center{
-    height: auto;
+/* .center{
+    height: 620px;
+    background-color: aliceblue;
+    
+} */
+.buttonEdit input{
+    width: 100px;
+    height: 30px;
+
+    float: left;
+    margin-right: 20px;
+    margin-left: 30px;
+    border-radius: 15px;
 }
-/* .forgot{
+
+.forgot{
     margin: 0;
     padding: 0;
     font-family: sans-serif;
@@ -10,35 +22,35 @@
     overflow: hidden;
 }
 
-.center{
+.center_edit{
     position: absolute;
-    top: 50%;
+    top: 80%;
     left: 50%;
     transform: translate(-50%, -50%);
     width: 400px;
-    height: 950px;
+    height: 900px;
     background: #F5F5F5;
     border-radius: 10px;
 }
 
-.center h1{
+.center_edit h1{
     text-align: center;
     padding: 0 0 20px 0;
     border-bottom: 1px solid silver;
 }
 
-.center form{
+.center_edit form{
     padding: 0 40px;
     box-sizing: border-box;
 }
 
-form .field{
+form .field_edit{
     position: relative;
     border-bottom: 2px solid #adadad;
     margin: 30px 0;
 }
 
-.field input{
+.field_edit input{
     width: 100%;
     padding: 0 5px;
     height: 40px;
@@ -48,7 +60,7 @@ form .field{
     outline: none;
 }
 
-.field label{
+.field_edit label{
     position: absolute;
     top: 50%;
     left: 10px;
@@ -59,7 +71,7 @@ form .field{
     transition: .5s;
 }
 
-.field span::before{
+.field_edit span::before{
     content: '';
     position: absolute;
     top: 40px;
@@ -70,14 +82,14 @@ form .field{
     transform: .5s;
 }
 
-.field input:focus ~ label,
-.field input:valid ~ label{
+.field_edit input:focus ~ label,
+.field_edit input:valid ~ label{
     top: -5px;
     color: #2691d9;
 }
 
-.field input:focus ~ span::before,
-.field input:valid ~ span::before{
+.field_edit input:focus ~ span::before,
+.field_edit input:valid ~ span::before{
     width: 100%;
 }
 
@@ -91,7 +103,7 @@ form .field{
     text-decoration: underline;
 }
 
-input[type="submit"]{
+/* input[type="submit"]{
     width: 100%;
     height: 50px;
     border: 1px solid;
@@ -102,14 +114,14 @@ input[type="submit"]{
     font-weight: 700;
     cursor: pointer;
     outline: none;
-}
+} */
 
 input [type="submit"]:hover{
     border-color: #2691d9;
     transition: .5s;
 }
 
-.register{
+.register_edit{
     width: 100%;
     height: 50px;
     border: 1px solid;
@@ -130,4 +142,4 @@ input [type="submit"]:hover{
 .register a{
     color: #F5F5F5;
     text-decoration: none;
-} */
+}
