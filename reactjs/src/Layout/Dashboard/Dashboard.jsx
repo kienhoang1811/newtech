@@ -2,6 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import axios from "axios";
 import "./Dashboard.css";
+
 import { AccountMenu } from "../AccountMenu/AccountMenu";
 import { FaSearch } from "react-icons/fa";
 import Footer from "../Footer/Footer";
@@ -11,25 +12,22 @@ import TableBody from "@mui/material/TableBody";
 import TableCell from "@mui/material/TableCell";
 import TableHead from "@mui/material/TableHead";
 import TableRow from "@mui/material/TableRow";
-
+import GlobalStyles from '@mui/material/GlobalStyles';
+import CssBaseline from '@mui/material/CssBaseline';
+import { AppBar, Button, Toolbar, Typography } from "@mui/material";
+// import Barchart from "../chart/chart";
 function Dashboard(props) {
   const history = useHistory();
 
   const [customerList, setCustomerList] = useState([]);
   const [keyword, setKeyword] = useState(null);
-  const [show, setShow] = useState("none");
+  
+  const account = localStorage.getItem("account");
 
   useEffect(() => {
     getCustomer();
 
-    localStorage.getItem("account");
-    console.log(`123`, show, JSON.parse(localStorage.getItem("account")).role);
-    setShow(
-      localStorage.getItem("account") &&
-        JSON.parse(localStorage.getItem("account")).role === "manager"
-        ? "block"
-        : "none"
-    );
+    
   }, []);
 
   const getCustomer = async () => {
@@ -107,19 +105,76 @@ function Dashboard(props) {
     setCustomerList(customers);
   };
 
-  const logout = () => {
-    localStorage.removeItem("account");
-
-    history.push("/");
-  };
-
   return (
     <div className="container_dashboard_header">
-      <div className="logo">
-        <h1>KMC Tech</h1>
+      {/* <div className="logo">
+        <h1>KMC Tech</h1> */}
+        {/* <img src="https://ced.ias.com.vn/wp-content/uploads/2020/06/banner-hanh-chinh-nhan-su-ced.png" alt="" /> */}
+        {/* <img src="http://velikorodnov.com/html/autotrader/images/logo.png" alt="Logo" style="width: 120px;"></img> */}
         {/* <h2>Your vision, our future</h2> */}
+      {/* </div> */}
+      <div className="appbar">
+      <GlobalStyles styles={{ ul: { margin: 0, padding: 0, listStyle: 'none' } }} />
+      <CssBaseline />
+      <AppBar
+        position="static"
+        color="default"
+        elevation={0}
+        sx={{ borderBottom: (theme) => `1px solid ${theme.palette.divider}` }}
+      >
+        <Toolbar sx={{ flexWrap: 'wrap' }}>
+          <Typography variant="h6" color="inherit" noWrap sx={{ flexGrow: 1 }}>
+            <Link to="/dashboard"><h1>KMC Tech</h1></Link>
+          </Typography>
+          <nav style={{marginRight:"25px"}}>
+            <Link
+              style={{margin:"30px",textDecoration:"none"}}
+              variant="button"
+              color="text.primary"
+              href="#"
+              sx={{ my: 1, mx: 1.5 }}
+            >
+              About
+            </Link>
+            <Link 
+            style={{margin:"30px",textDecoration:"none"}}
+              variant="button"
+              color="text.primary"
+              href="#"
+              sx={{ my: 1, mx: 1.5 }}
+            >
+              Features
+            </Link>
+            <Link
+            style={{margin:"30px",textDecoration:"none"}}
+              variant="button"
+              color="text.primary"
+              href="#"
+              sx={{ my: 1, mx: 1.5 }}
+            >
+              Pricing
+            </Link>
+
+            <Link
+            style={{margin:"30px", textDecoration:"none"}}
+              variant="button"
+              color="text.primary"
+              href="#"
+              sx={{ my: 1, mx: 1.5 }}
+            >
+              ContactUs
+            </Link>
+            
+          </nav>
+          
+        </Toolbar>
+      </AppBar>
       </div>
+
       <div className="dashboard_header">
+        <div className="banner_img">
+          <img src="https://images.unsplash.com/photo-1557804506-669a67965ba0?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1974&q=80" alt="" />
+        </div>
         <form className="dashboard_header-formSearch" onSubmit={search}>
           <span className="dashboard_header_iconSearch">
             <FaSearch />
@@ -134,33 +189,25 @@ function Dashboard(props) {
           {/* <button className="b_search">Search</button> */}
         </form>
         <div className="dashboard_header_group">
-          <div style={{ display: show }}>
-            {/* <Link to="add-admin">
-              <button className="dashboard_add">Add admin</button>
-            </Link> */}
+          
+          <div>
             <AccountMenu />
           </div>
-          <div>
-            {/* <Link to="home">
-              <button onClick={logout} className="dashboard_signout">
-                Log out
-              </button>
-            </Link> */}
-          </div>
+          <div></div>
         </div>
       </div>
       <div className="dashboard_body">
         {/* <Title>Recent Orders</Title> */}
-        <Table size="small">
+        <Table className="table" size="small">
           <TableHead>
-            <TableRow  className="dashboard_table">
-              <TableCell>ID</TableCell>
-              <TableCell>Name</TableCell>
-              <TableCell>Phone</TableCell>
-              <TableCell>Email</TableCell>
-              <TableCell>Address</TableCell>
-              <TableCell>Country</TableCell>
-              <TableCell>Function</TableCell>
+            <TableRow className="dashboard_table">
+              <TableCell className="dashboard_head_child">ID</TableCell>
+              <TableCell className="dashboard_head_child">Name</TableCell>
+              <TableCell className="dashboard_head_child">Phone</TableCell>
+              <TableCell className="dashboard_head_child">Email</TableCell>
+              <TableCell className="dashboard_head_child">Address</TableCell>
+              <TableCell className="dashboard_head_child">Country</TableCell>
+              <TableCell className="dashboard_head_child">Function</TableCell>
               {/* <TableCell align="right">Sale Amount</TableCell> */}
             </TableRow>
           </TableHead>
@@ -168,16 +215,24 @@ function Dashboard(props) {
             {customerList.length > 0 &&
               customerList.map((item, key) => (
                 // <div></div>
-                <TableRow key={key}>
-                  <TableCell>{item.id}</TableCell>
-                  <TableCell>
+                <TableRow className="dashboard_table_col" key={key} >
+                  <TableCell className="dashboard_table_child"> 
+                    {item.id}
+                  </TableCell>
+                  <TableCell className="dashboard_table_child">
                     {item.username.replace("@gmail.com", "")}
                   </TableCell>
-                  <TableCell>{item.contact_id.phone}</TableCell>
-                  <TableCell>{item.contact_id.email}</TableCell>
-                  <TableCell>{`${item.address_id.street}, ${item.address_id.ward} Ward, ${item.address_id.district} District, ${item.address_id.city} City`}</TableCell>
-                  <TableCell>{item.address_id.country}</TableCell>
-                  <TableCell>
+                  <TableCell className="dashboard_table_child">
+                    {item.contact_id.phone}
+                  </TableCell>
+                  <TableCell className="dashboard_table_child">
+                    {item.contact_id.email}
+                  </TableCell>
+                  <TableCell className="dashboard_table_child">{`${item.address_id.street}, ${item.address_id.ward} Ward, ${item.address_id.district} District, ${item.address_id.city} City`}</TableCell>
+                  <TableCell className="dashboard_table_child">
+                    {item.address_id.country}
+                  </TableCell>
+                  <TableCell className="dashboard_table_child">
                     <div className="frame_func">
                       <img
                         onClick={() => showEdit(item)}
@@ -197,7 +252,9 @@ function Dashboard(props) {
               ))}
           </TableBody>
         </Table>
+        
       </div>
+      {/* <div><Barchart/></div> */}
 
       <div className="dashboard_footer">
         <div className="dashboard_footer_b_adduser">
@@ -205,7 +262,6 @@ function Dashboard(props) {
             <button>Add customer</button>
           </Link> */}
         </div>
-        <div></div>
       </div>
       <Footer />
     </div>

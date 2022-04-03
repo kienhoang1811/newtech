@@ -8,20 +8,43 @@ import {
   MenuItem,
   Tooltip,
 } from "@mui/material";
-import React from "react";
+import React, {useState, useEffect } from "react";
 import { Settings, PersonAdd, Logout } from "@mui/icons-material";
 import { Link, useHistory } from "react-router-dom";
+import "./AccountMenu.css";
 
 export const AccountMenu = ({ setIsLogin }) => {
-  const history = useHistory()
+  const history = useHistory();
   const [anchorEl, setAnchorEl] = React.useState(null);
   const open = Boolean(anchorEl);
+  const [show, setShow] = useState("none");
+
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
     setAnchorEl(null);
   };
+  const logout = () => {
+    localStorage.removeItem("account");
+
+    history.push("/");
+  };
+  const handleLogout = () => {
+    setIsLogin(false)
+    logout()
+  }
+  useEffect(()=>{
+    localStorage.getItem("account");
+    console.log(`123`, show, JSON.parse(localStorage.getItem("account")).role);
+    setShow(
+      localStorage.getItem("account") &&
+        JSON.parse(localStorage.getItem("account")).role === "manager"
+        ? "block"
+        : "none"
+    );
+  },[])
+
   return (
     <div>
       {/* <Box sx={{ display: "flex", alignItems: "center", textAlign: "center" }}> */}
@@ -29,12 +52,12 @@ export const AccountMenu = ({ setIsLogin }) => {
         <IconButton
           onClick={handleClick}
           size="small"
-          sx={{ ml: 2 }}
+          sx={{ ml: 35 }}
           aria-controls={open ? "account-menu" : undefined}
           aria-haspopup="true"
           aria-expanded={open ? "true" : undefined}
         >
-          <Avatar sx={{ width: 32, height: 32 }}>M</Avatar>
+          <Avatar sx={{ width: 32, height: 32, background:"orange" }}>M</Avatar>
         </IconButton>
       </Tooltip>
       {/* </Box> */}
@@ -73,30 +96,20 @@ export const AccountMenu = ({ setIsLogin }) => {
         transformOrigin={{ horizontal: "right", vertical: "top" }}
         anchorOrigin={{ horizontal: "right", vertical: "bottom" }}
       >
-        <MenuItem >
-          <Link to="add-admin">
+        <MenuItem style={{display: show, marginRight:"30px"}} onClick={() => history("/add-admin")}>
+
+          <Link style={{textDecoration : "none"}} className="menu_item" to="add-admin">
             <Avatar /> Add Admin
           </Link>
         </MenuItem>
         <MenuItem>
-          <Link to="add-user">
+          <Link style={{textDecoration : "none"}} className="menu_item" to="add-user">
             <Avatar /> Add Customer
           </Link>
         </MenuItem>
         <Divider />
-        {/* <MenuItem>
-            <ListItemIcon>
-              <PersonAdd fontSize="small" />
-            </ListItemIcon>
-            Add another account
-          </MenuItem>
-          <MenuItem>
-            <ListItemIcon>
-              <Settings fontSize="small" />
-            </ListItemIcon>
-            Settings
-          </MenuItem> */}
-        <MenuItem onClick={() => setIsLogin(false)}>
+
+        <MenuItem onClick={logout}>
           <ListItemIcon>
             <Logout fontSize="small" />
           </ListItemIcon>

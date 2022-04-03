@@ -1,0 +1,13 @@
+.menu_item{
+    /* background: red; */
+    display: flex;
+    flex-direction: row;
+}
+
+.menu_item{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    text-decoration: none;
+    color: #000;
+}

@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import "./Footer.css";
+import { blue } from "@mui/material/colors";
 
 Footer.propTypes = {};
 
@@ -12,12 +13,13 @@ function Footer(props) {
           <div class="row">
             <div class="col-xs-12 col-sm-6 col-md-4 footers-one">
               <div class="footers-logo">
-                <img
+                {/* <img
                   src="http://velikorodnov.com/html/autotrader/images/logo.png"
                   alt="Logo"
                 //   style="width:120px;"
                   style={{width : "120px"}}
-                />
+                /> */}
+                <h2 style={{color: "blue", fontStyle:"italic"}}>KMC Tech</h2>
               </div>
               <div class="footers-info mt-3">
                 <p>
@@ -139,22 +141,8 @@ function Footer(props) {
         <div class="container">
           <div class="row ">
             <div class="col-md-12 py-2">
-              <small>
-                Disclaimer: Element Limited is only an intermediary offering its
-                platform to facilitate the transactions between Seller and
-                Customer/Buyer/User and is not and cannot be a party to or
-                control in any manner any transactions between the Seller and
-                the Customer/Buyer/User. All the offers and discounts on this
-                Website have been extended by various Builder(s)/Developer(s)
-                who have advertised their products. Element is only
-                communicating the offers and not selling or rendering any of
-                those products or services. It neither warrants nor is it making
-                any representations with respect to offer(s) made on the site.
-                Element Limited shall neither be responsible nor liable to
-                mediate or resolve any disputes or disagreements between the
-                Customer/Buyer/User and the Seller and both Seller and
-                Customer/Buyer/User shall settle all such disputes without
-                involving Element Limited in any manner.
+              <small style={{justifyContent:"center", display:"flex", alignItems:"center"}}>
+                How to use people effectively is not in doing everything to limit their weaknesses, it is more important to know how to promote their strengths (Peter Ferdinand Drucker - world famous manager).
               </small>
             </div>
           </div>
@@ -164,7 +152,7 @@ function Footer(props) {
         <div class="container">
           <div class="row text-center">
             <div class="col-md-12 pt-3">
-              <p class="text-muted">© 2018 xyz Software Pvt. Ltd.</p>
+              <p class="text-muted">©KMC techonogy [Key management customer techonogy].</p>
             </div>
           </div>
         </div>
