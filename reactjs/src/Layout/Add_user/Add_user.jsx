@@ -158,7 +158,7 @@ function Add_user(props) {
           <input  type="button" value="Cancel" onClick={backToDashboard} />
         </div>
         <div className="buttonEdit">
-          <input type="submit" value="Submit" />
+          <input type="submit" value="Submit" onClick={backToDashboard} />
         </div>
       </form>
     </div>
